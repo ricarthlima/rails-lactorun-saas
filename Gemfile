@@ -27,7 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'execjs'
-gem 'therubyracer'
+#gem 'therubyracer'
+gem 'mini_racer'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -37,6 +38,28 @@ gem 'therubyracer'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+#-------------------------------------------------------------------------------
+# 2 - Bootstrap, CSS, JavaScript
+
+# Usar o Bootstrap como framework HTML+CSS+JavaScript
+gem "bootstrap", ">= 4.3.1"
+
+
+# Usar o JQuery
+gem 'jquery-rails'
+
+# Usar SASSC para stylesheets
+# gem 'sass-rails', '~> 5.0' #Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
+gem 'sassc-rails'
+
+# Usar Uglifier como compressor de materiais JavaScript
+gem 'uglifier', '>= 1.3.0'
+
+# Usar CoffeeScript para materiais .coffee e views
+gem 'coffee-rails', '~> 4.2'
+
+#-------------------------------------------------------------------------------
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

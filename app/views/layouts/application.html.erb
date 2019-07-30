@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Workspace</title>
+    <title>LactoRun</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= yield :nav %>
+    
+    <div class = "container">
+      <%= yield %>
+    </div>
+    
+    <%= yield :footer %>
   </body>
 </html>
