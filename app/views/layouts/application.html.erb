@@ -7,15 +7,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Importação de Fontes -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Farro|Roboto&display=swap" rel="stylesheet"> 
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
-    <%= yield :nav %>
+    <%= render 'shared/navbar' %>
     
     <div class = "container">
       <%= yield %>
     </div>
     
-    <%= yield :footer %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
