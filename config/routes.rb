@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   
   get 'terms' => 'pages#terms'
   get 'privacy' => 'pages#privacy'
+  get 'termos' => 'pages#terms'
+  get 'privacidade' => 'pages#privacy'
 end

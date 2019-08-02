@@ -72,6 +72,11 @@ h1,h2,h3,h4,h5,h6{
     background: var(--darkblue);
 }
 
+.navbar-lactorun{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .index-header{
     position: relative;
 }
@@ -140,4 +145,11 @@ h1,h2,h3,h4,h5,h6{
 
 .footer-a:hover{
     color: #6487ad;
+}
+
+
+@media(min-width: 992px){
+    .btn-nav{
+        max-width: 125px;
+    }    
 }
