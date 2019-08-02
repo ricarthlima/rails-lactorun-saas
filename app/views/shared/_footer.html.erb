@@ -1,5 +1,31 @@
 <div class = "footer">
     O LactoRun está em desenvolvimento e validação.<br>
-    Termos - Privacide - Conteúdos CC<br>
+    <a class = "footer-a" href = <%= terms_path%>>Termos</a> - 
+    <a class = "footer-a" href = <%= privacy_path %>>Privacide</a> - 
+    <a class = "footer-a" href = "" data-toggle="modal" data-target="#modalConteudoCC">
+      Conteúdos CC
+    </a><br>
     Lactorun@2019
+</div>
+
+<!-- Botão para acionar modal -->
+
+
+<!-- Modal de Conteúdos CC -->
+<div class="modal fade" id="modalConteudoCC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Creative Common Mentions</h5>
+      </div>
+      <div class="modal-body">
+          <ul>
+              <li><strong>Banner da Página Inicial:</strong> "9278 red runner" by crabchick is licensed under CC by 2.0 </li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
 </div>

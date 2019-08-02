@@ -1,3 +1,16 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.index-text-banner{
+    text-align: left;
+    margin-bottom: 20px;
+    
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+.index-text-destaque{
+    color: var(--highlightblue);
+}
+
+.btn-big-index{
+    padding: 16px 32px;
+}
+

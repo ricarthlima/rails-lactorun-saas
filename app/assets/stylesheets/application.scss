@@ -20,6 +20,7 @@
     --darkblue: #2f3d57;
     --greyblue: #4a4d5c;
     --defaultblue: #91c2e3;
+    --highlightblue: #36577a;
 }
 
 /* Padrões */
@@ -99,7 +100,7 @@ h1,h2,h3,h4,h5,h6{
     margin: 20px 0px;
     background: var(--defaultblue);
     font-size: 1.5em;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 @media (min-width: 400px){
@@ -118,4 +119,25 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
     color: white;
     font-size: 0.8em;
+}
+
+.legal-title{
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    
+    padding: 25px 0px 18px 0px;
+}
+
+.legal-text{
+    margin-top: 35px;
+}
+
+.footer-a{
+    color: #91c2e3;
+    text-decoration: underline;
+}
+
+.footer-a:hover{
+    color: #6487ad;
 }
