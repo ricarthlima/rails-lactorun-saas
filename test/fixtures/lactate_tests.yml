@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  local: MyString
+  latitude: 1.5
+  longitude: 1.5
+  date: 2019-08-03
+  time: 2019-08-03 12:13:45
+
+two:
+  user: two
+  local: MyString
+  latitude: 1.5
+  longitude: 1.5
+  date: 2019-08-03
+  time: 2019-08-03 12:13:45
