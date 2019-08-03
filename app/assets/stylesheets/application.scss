@@ -21,6 +21,7 @@
     --greyblue: #4a4d5c;
     --defaultblue: #91c2e3;
     --highlightblue: #36577a;
+    --lightblue: #CDE7F9;
 }
 
 /* Padrões */
@@ -152,4 +153,17 @@ h1,h2,h3,h4,h5,h6{
     .btn-nav{
         max-width: 125px;
     }    
+}
+
+.sign-field{
+    background-color: var(--lightblue);
+    padding: 5px 10px 10px 10px;
+    border-radius: 7px;
+    
+    margin-bottom: 10px;
+}
+
+.sign-modal{
+    background-color: var(--defaultblue);
+    /*max-width: 350px;*/
 }

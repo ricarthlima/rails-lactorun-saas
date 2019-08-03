@@ -24,8 +24,13 @@
                     <a class="nav-link" href="">Protocolo</a>
                 </li>
             </ul>
-            <button class="btn btn-outline-info btn-block btn-nav mr-sm my-2 my-lg-0" type="submit">Fazer login</button>        
-            <button class="btn btn-outline-info btn-block btn-nav my-0" type="submit">Inscrever-se!</button>        
+            <% if user_signed_in? %>
+                <a class = "footer-a mr-sm" href = ""><%= current_user.email%></a>
+                <%= button_to "Sair", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-danger btn-block btn-nav'  %>
+            <% else %>
+                <button class="btn btn-outline-info btn-block btn-nav mr-sm my-2 my-lg-0" type="button" data-toggle="modal" data-target="#modalEntrar">Fazer login</button>        
+                <button class="btn btn-outline-info btn-block btn-nav my-0" type="button" data-toggle="modal" data-target="#modalRegistro">Inscrever-se!</button>
+            <% end %>
         </div>
     </div>
 </nav>
