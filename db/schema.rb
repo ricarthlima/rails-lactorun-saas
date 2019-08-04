@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_121345) do
+ActiveRecord::Schema.define(version: 2019_08_04_132201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2019_08_03_121345) do
     t.index ["user_id"], name: "index_lactate_tests_on_user_id"
   end
 
+  create_table "sprint_tests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "lactate_test_id"
+    t.integer "order"
+    t.float "distance"
+    t.float "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lactate_test_id"], name: "index_sprint_tests_on_lactate_test_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,4 +53,5 @@ ActiveRecord::Schema.define(version: 2019_08_03_121345) do
   end
 
   add_foreign_key "lactate_tests", "users"
+  add_foreign_key "sprint_tests", "lactate_tests"
 end
