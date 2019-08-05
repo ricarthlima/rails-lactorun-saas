@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'privacidade' => 'pages#privacy'
   
   get 'app' => 'app#manager_verification'
+  get 'app_set' => 'app#set_manager'
 end
