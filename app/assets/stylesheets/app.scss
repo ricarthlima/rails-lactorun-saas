@@ -1,0 +1,36 @@
+// Place all the styles related to the app controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.manager_decision_container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 100vh;
+}
+
+.manager_decision_title{
+    font-weight: 900;
+    font-family: 'Raleway: 900', sans-serif;
+    color: var(--darkblue);
+}
+
+.btn-manager-decision{
+    background-color: white;
+    padding: 35px 12px 35px 12px;
+    border-radius: 15px;
+    border: none;
+    width: 90%;
+    max-width: 300px;
+    min-height: 415px;
+}
+
+.manager-decision-button-image{
+    height: 128px;
+    width: auto;
+    margin-bottom: 30px;
+}
+
+.manager_decision_inner{
+    max-width: 500px;
+    text-align: center;
+}

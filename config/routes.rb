@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'termos' => 'pages#terms'
   get 'privacidade' => 'pages#privacy'
   
-  get 'app' => 'pages#app'
+  get 'app' => 'app#manager_verification'
+  get 'app_set' => 'app#set_manager'
 end

@@ -28,6 +28,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     text-align: justify;
+    background: #91c2e3;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -67,6 +68,22 @@ h1,h2,h3,h4,h5,h6{
     font-family: 'Comfortaa', cursive;
 }
 
+.font-raleway900{
+    font-weight: 900;
+    font-family: 'Raleway: 900', sans-serif;
+}
+
+.font-raleway{
+    font-family: 'Raleway: 900', sans-serif;
+}
+
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-oswald{
+    font-family: 'Oswald', sans-serif;
+}
 
 /* Classes */
 .navbar-bg{
@@ -76,6 +93,11 @@ h1,h2,h3,h4,h5,h6{
 .navbar-lactorun{
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.container-white{
+    background: white; 
+    padding-bottom: 75px;
 }
 
 .index-header{
@@ -101,12 +123,31 @@ h1,h2,h3,h4,h5,h6{
     width: 100%;
 }
 
+.index-text-banner{
+    text-align: left;
+    margin-bottom: 20px;
+    
+    font-weight: 900;
+    font-family: 'Raleway: 900', sans-serif;
+}
+
+.index-text-destaque{
+    color: var(--highlightblue);
+}
+
+.btn-big-index{
+    padding: 16px 32px;
+}
+
+
 .subtopic{
     padding: 25px 10px;
     margin: 20px 0px;
-    background: var(--defaultblue);
+    background: var(--highlightblue);
+    font-family: 'Raleway', sans-serif;
+    color: white;
     font-size: 1.5em;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 @media (min-width: 400px){
@@ -120,7 +161,7 @@ h1,h2,h3,h4,h5,h6{
     background: var(--greyblue);
     
     padding: 25px 10px;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     
     text-align: center;
     color: white;
