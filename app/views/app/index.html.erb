@@ -1,1 +1,19 @@
-NORMAL
+<div class = "row" style = "min-height: 91vh; position: relative;">
+    <div class = "col-3" style = "padding: 35px 1px 0px 1px;">
+        <ul style="list-style-type: none; margin: 0px; padding: 0px;">
+            <li><button class = "btn-dashboard" onclick = "showListTests()"><i class="fas fa-list mr-sm"></i> Lista de Testes</button></li>
+            <li><button class = "btn-dashboard" onclick = "showAnalisysTest()"><i class="fas fa-check mr-sm"></i> Análise dos Testes</button></li>
+            <hr>
+            <li><button class = "btn-dashboard" onclick = "showGroups()"><i class="fas fa-users mr-sm"></i> Ingressar em uma turma</button></li>
+        </ul>
+    </div>
+    <div class = "col dashboard_main_col">
+        <div id = "normal_list">
+            <%= render 'normal_list' %>
+        </div>
+    </div>
+    <button class = "btn botao-flutuante" onclick = "window.location.href = 'mailto:rrsl@cin.ufpe.br';">
+      <i class="fas fa-plus"></i>
+    </button>
+</div>
+

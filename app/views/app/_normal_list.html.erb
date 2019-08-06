@@ -1,0 +1,24 @@
+<% if @list_lactate_test.size > 0  then %>
+    <% @list_lactate_test.each do |test| %>
+        <div class = "list_item">
+            <div class = "col-auto">
+                <div class = "circle_info"  style = "padding: 0px">
+                    12,5
+                </div>
+            </div>
+            <div class = "col" style = "padding: 0px">
+                <%= test.local %>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <div class = "" style = "margin-top: 30px;">
+        <center>
+            <img src = "/assets/stopwatch.png" height = "45" width = "auto">
+            <br>
+            <small>Ainda nenhum teste,</br></small>
+            <small>já para pista!</small>
+            
+        </center>
+    </div>
+<% end %>

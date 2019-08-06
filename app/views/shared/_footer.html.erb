@@ -1,12 +1,14 @@
-<div class = "footer">
-    O LactoRun está em desenvolvimento e validação.<br>
-    <a class = "footer-a" href = <%= terms_path%>>Termos</a> - 
-    <a class = "footer-a" href = <%= privacy_path %>>Privacide</a> - 
-    <a class = "footer-a" href = "" data-toggle="modal" data-target="#modalConteudoCC">
-      Conteúdos CC
-    </a><br>
-    Lactorun@2019
-</div>
+<% if !user_signed_in? %>
+  <div class = "footer">
+      O LactoRun está em desenvolvimento e validação.<br>
+      <a class = "footer-a" href = <%= terms_path%>>Termos</a> - 
+      <a class = "footer-a" href = <%= privacy_path %>>Privacide</a> - 
+      <a class = "footer-a" href = "" data-toggle="modal" data-target="#modalConteudoCC">
+        Conteúdos CC
+      </a><br>
+      Lactorun@2019
+  </div>
+<% end %>
 
 <!-- Botão para acionar modal -->
 

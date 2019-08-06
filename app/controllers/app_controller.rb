@@ -8,15 +8,12 @@ class AppController < ApplicationController
            if current_user.is_manager then
                render :dashboard_manager
            else
-               render :index
+               index_normal
            end
        end
     end
     
     def set_manager
-        print("\n--------------\n")
-        print(params[:is_manager])
-        print("\n--------------\n")
         is_manager = params[:is_manager]
         if is_manager == "true" then
             current_user.is_manager = true
@@ -25,5 +22,10 @@ class AppController < ApplicationController
         end
         current_user.save
         redirect_to app_path
+    end
+    
+    def index_normal
+        @list_lactate_test = LactateTest.where("user_id = '"+current_user.id+"'")
+        render :index
     end
 end

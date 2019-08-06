@@ -34,3 +34,59 @@
     max-width: 500px;
     text-align: center;
 }
+
+.hidden{
+    display: none;
+}
+
+.btn-dashboard{
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 5px;
+    
+    border-radius:0px;
+    border: none;
+    border-left: 2px solid var(--darkblue);
+    
+    background: none;
+    color: var(--darkblue);
+    
+    text-align: left;
+    font-size: 0.92em;
+    
+    
+}
+
+.btn-dashboard:hover{
+    background: white;
+    border-left: 5px solid var(--darkblue);
+}
+
+.dashboard_main_col{
+    background-color: var(--lightdefaultblue); 
+    padding-top: 35px;
+    border-left: 1px solid var(--nheblue);
+    border-right: 1px solid var(--nheblue);
+    overflow-x: auto;
+}
+
+.list_item{
+    background: var(--reallightdefaultblue);
+    margin-bottom: 10px;
+    width: 100%;
+    min-width: 300px;
+    padding: 7px 0px;
+    display: flex;
+}
+
+.circle_info{
+    background: var(--darkblue);
+    border-radius: 50%;
+    border: 5px solid var(--darkpoolblue);
+    height: 50px;
+    width: 50px;
+    color: white;
+    font-size: 0.7em;
+    text-align: center;
+    
+}

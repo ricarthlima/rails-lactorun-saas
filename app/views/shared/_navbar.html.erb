@@ -17,12 +17,14 @@
         <!-- Tudo dentro dessa div irá sumir -->
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item"> <!-- 'active' to active-->
-                    <a class="nav-link" href="">Como funciona?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Protocolo</a>
-                </li>
+                <% if !user_signed_in? %>
+                    <li class="nav-item"> <!-- 'active' to active-->
+                        <a class="nav-link" href="">Como funciona?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Protocolo</a>
+                    </li>
+                <% end %>
             </ul>
             <% if user_signed_in? %>
                 <a class = "footer-a mr-sm" href = ""><%= current_user.email%></a>
