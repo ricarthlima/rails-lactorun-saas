@@ -252,3 +252,8 @@ h1,h2,h3,h4,h5,h6{
 .dropdown-item:hover{
     background: #e5e5e5;
 }
+
+.dashboard-container{
+    min-height: 85vh; 
+    position: relative;
+}
