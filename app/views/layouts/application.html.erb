@@ -26,24 +26,24 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    
+    <% if notice %>
+      <div class="alert alert-success alert-dismissible fade show alert-more" role = "alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger alert-dismissible fade show alert-more" role = "alert" style = "margin-bottom: 0px;">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+      
     <div class = "container">
-      <% if notice %>
-        <div class="alert alert-success alert-dismissible fade show" role = "alert" style = "margin-bottom: 0px;">
-          <%= notice %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert alert-danger alert-dismissible fade show" role = "alert" style = "margin-bottom: 0px;">
-          <%= alert %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
       <%= yield %>
     </div>
     
