@@ -218,8 +218,8 @@ h1,h2,h3,h4,h5,h6{
 
 .botao-flutuante{
     position: absolute;
-    bottom: 4vh;
-    right: 2vw;
+    bottom: 32px;
+    right: 32px;
     
     font-size: 25px;
     color: white;
@@ -236,4 +236,19 @@ h1,h2,h3,h4,h5,h6{
 
 .botao-flutuante:hover{
     color: #dddddd;
+}
+
+.navbar-circle{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: white;
+}
+
+.navbar-circle:hover{
+    color: white;
+}
+
+.dropdown-item:hover{
+    background: #e5e5e5;
 }

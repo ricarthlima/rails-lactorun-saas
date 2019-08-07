@@ -64,10 +64,11 @@
 
 .dashboard_main_col{
     background-color: var(--lightdefaultblue); 
-    padding-top: 35px;
+    padding-top: 20px;
     border-left: 1px solid var(--nheblue);
     border-right: 1px solid var(--nheblue);
     overflow-x: auto;
+    min-height: 0;
 }
 
 .list_item{
