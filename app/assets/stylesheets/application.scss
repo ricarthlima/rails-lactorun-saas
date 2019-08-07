@@ -99,6 +99,11 @@ h1,h2,h3,h4,h5,h6{
     bottom: 1px;  
     z-index: 9999;
 }
+@media(max-width: 575px){
+    .alert-more{
+        width: 100%;
+    }
+}
 
 .navbar-bg{
     background: var(--darkblue);
@@ -261,6 +266,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .dashboard-container{
-    min-height: 85vh; 
+    min-height: calc(100vh - 72px); 
+    max-height: calc(100vh - 72px);  
     position: relative;
 }
