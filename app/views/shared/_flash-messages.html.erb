@@ -1,0 +1,44 @@
+<!-- Botão para acionar modal -->
+<button type="button" class="hidden" data-toggle="modal" data-target="#flashModal" id = "flashMessageButton">
+    a
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="flashModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <% if flash[:error] %>
+            <div class = "alert alert-danger"><%= flash[:error] %></div>
+        <% elsif flash[:notice] %>
+            <div class = "alert alert-primary"><%= flash[:notice] %></div>
+        <% elsif flash[:warning] %>
+            <div class = "alert alert-warning"><%= flash[:warning] %></div>
+        <% elsif flash[:info] %>
+            <div class = "alert alert-info"><%= flash[:info] %></div>
+        <% end %>
+        <% if flash[:text] %>
+            <%= flash[:text] %>
+        <% end %>
+        
+        <% if flash[:list] %>
+            <ul>
+            <% tokenizar_flash_list(flash[:list]).each do |topic| %>
+                <li><%= topic %></li>
+            <% end %>
+            </ul>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% if flash[:error] or flash[:notice] or flash[:warning] or flash[:info] %>
+    <script>
+        document.getElementById("flashMessageButton").click();
+    </script>
+<% end %>

@@ -36,7 +36,24 @@ class AppController < ApplicationController
         @lactate_test.local = params["lactate_test"]["local"]
         @lactate_test.date = params["lactate_test"]["date"]
         @lactate_test.time = params["lactate_test"]["time"]
-        @lactate_test.save
+        
+        if !@lactate_test.valid? then
+            flash[:error] = "Não foi possível salvar as informações."
+            
+            if @lactate_test.local == "" then
+                flash[:list] = "É preciso inserir um local.\n"
+            end
+            
+            if @lactate_test.date == nil then
+                flash[:list] += "É preciso inserir uma data.\n"
+            end
+            
+            if @lactate_test.time == nil then
+                flash[:list] += "É preciso inserir um horário."
+            end
+        else
+            @lactate_test.save
+        end
         redirect_to app_path
     end
 end

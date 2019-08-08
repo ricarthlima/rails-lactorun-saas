@@ -16,4 +16,9 @@ module ApplicationHelper
     def devise_mapping
         @devise_mapping ||= Devise.mappings[:user]
     end
+    
+    
+    def tokenizar_flash_list(str)
+        return str.split("\n")
+    end
 end

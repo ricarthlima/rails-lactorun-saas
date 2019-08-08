@@ -18,3 +18,5 @@ function showGroups(){
 function alimentarConsts(){
     listElement = document.getElementById('normal_list');
 }
+
+
