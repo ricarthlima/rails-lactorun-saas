@@ -16,7 +16,7 @@
             </div>
             <div class = "col" style = "padding: 0px">
                 <div class = "test-local-title"><%= test.local %></div>
-                <div class = "test-local-subtitle lh-sm"><%= test.date %> às </div>
+                <div class = "test-local-subtitle lh-sm"><%= test.date %> às <%= test.time.to_s[11,5] %> </div>
                 <% if sprint_list_size < 4 %>
                     <div style = "padding: 0px; margin: 0px">
                         <b class = "test-local-status">INCOMPLETO</b>
