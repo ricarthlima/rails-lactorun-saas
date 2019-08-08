@@ -64,6 +64,10 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: 5px;
 }
 
+.lh-sm{
+    line-height: 10px;
+}
+
 .text-bold{
     font-weight: bold;
 }
@@ -233,8 +237,19 @@ h1,h2,h3,h4,h5,h6{
     /*max-width: 350px;*/
 }
 
+@media(max-width: 575px){
+    .botao-flutuante{
+        position: fixed;
+    }
+}
+
+@media(min-width: 576px){
+    .botao-flutuante{
+        position: absolute;
+    }
+}
+
 .botao-flutuante{
-    position: absolute;
     bottom: 32px;
     right: 32px;
     
@@ -252,7 +267,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .botao-flutuante:hover{
-    color: #dddddd;
+    background: var(--greyblue);
+    color: white;
 }
 
 .navbar-circle{

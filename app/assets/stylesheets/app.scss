@@ -64,7 +64,7 @@
 
 .dashboard_main_col{
     background-color: var(--lightdefaultblue); 
-    padding-top: 20px;
+    padding: 0px !important;
     border-left: 1px solid var(--nheblue);
     border-right: 1px solid var(--nheblue);
     overflow-x: auto;
@@ -73,11 +73,13 @@
 
 .list_item{
     background: var(--reallightdefaultblue);
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: 100%;
     min-width: 350px;
     padding: 7px 0px;
     display: flex;
+    
+    border: 1px solid var(--defaultblue);
 }
 
 .circle_info{

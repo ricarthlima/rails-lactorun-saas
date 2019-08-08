@@ -14,8 +14,6 @@
             <div class = "alert alert-primary"><%= flash[:notice] %></div>
         <% elsif flash[:warning] %>
             <div class = "alert alert-warning"><%= flash[:warning] %></div>
-        <% elsif flash[:info] %>
-            <div class = "alert alert-info"><%= flash[:info] %></div>
         <% end %>
         <% if flash[:text] %>
             <%= flash[:text] %>
@@ -37,7 +35,7 @@
 </div>
 
 
-<% if flash[:error] or flash[:notice] or flash[:warning] or flash[:info] %>
+<% if flash[:error] or flash[:notice] or flash[:warning] %>
     <script>
         document.getElementById("flashMessageButton").click();
     </script>
