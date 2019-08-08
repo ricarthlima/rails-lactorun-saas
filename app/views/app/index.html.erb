@@ -1,5 +1,5 @@
 <div class = "row dashboard-container">
-    <div class = "col-3" style = "padding: 20px 1px 0px 1px;">
+    <div class = "col-3" style = "padding: 20px 1px 0px 1px; min-width: 250px;" id = "sidebar-content">
         <ul style="list-style-type: none; margin: 0px; padding: 0px;">
             <li><button class = "btn-dashboard" onclick = "showListTests()"><i class="fas fa-list mr-sm"></i> Lista de Testes</button></li>
             <li><button class = "btn-dashboard" onclick = "showAnalisysTest()"><i class="fas fa-check mr-sm"></i> Análise dos Testes</button></li>
@@ -7,6 +7,12 @@
             <li><button class = "btn-dashboard" onclick = "showGroups()"><i class="fas fa-users mr-sm"></i> Ingressar em uma turma</button></li>
         </ul>
     </div>
+    <div class = "col col-auto" style = "padding: 0px; margin: 0px;" id = "sidebar-button">
+        <button class = "btn btn-dark" style = "height: calc(100vh - 72px); padding: 1px; margin: 0px; border-radius: 0px;" onclick = "toogleSidebar()">
+            <i class="fas fa-chevron-right" id = "chevrolet"></i>
+        </button>
+    </div>
+    
     <div class = "col dashboard_main_col">
         <div id = "normal_list">
             <%= render 'normal_list' %>
@@ -16,5 +22,48 @@
       <center><i class="fas fa-plus"></i></center>
     </button>
 </div>
+
+<script>
+    var side = document.getElementById("sidebar-content");
+    var sideBtn = document.getElementById("sidebar-button");
+    var chevrolet = document.getElementById("chevrolet");
+    
+    if (window.innerWidth < 575){
+        side.classList.add("hidden");
+    }else{
+        sideBtn.classList.add("hidden");
+    }
+    
+    function sidebarObserver(){
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        
+        if (w < 575) {
+            side.classList.add("hidden");
+            sideBtn.classList.remove("hidden");
+            
+            chevrolet.classList.add("fa-chevron-right");
+            chevrolet.classList.remove("fa-chevron-left");
+        }else{
+            side.classList.remove("hidden");
+            sideBtn.classList.add("hidden");
+            
+            chevrolet.classList.add("fa-chevron-left");
+            chevrolet.classList.remove("fa-chevron-right");
+        }
+    }
+    
+    function toogleSidebar(){
+        if (side.classList.contains("hidden")){
+            side.classList.remove("hidden");
+            chevrolet.classList.add("fa-chevron-left");
+            chevrolet.classList.remove("fa-chevron-right");
+        }else{
+            side.classList.add("hidden");
+            chevrolet.classList.add("fa-chevron-right");
+            chevrolet.classList.remove("fa-chevron-left");
+        }
+    }
+</script>
 
 <%= render 'form_new_lactate_test' %>
