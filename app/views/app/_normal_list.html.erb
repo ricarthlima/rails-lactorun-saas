@@ -1,13 +1,62 @@
 <% if @list_lactate_test.size > 0  then %>
     <% @list_lactate_test.each do |test| %>
-        <div class = "list_item">
+        <% sprint_list = SprintTest.where("lactate_test_id = '" + test.id.to_s + "'")%>
+        <% sprint_list_size = sprint_list.size %>
+        <div class = "list_item  align-items-center">
             <div class = "col-auto">
-                <div class = "circle_info"  style = "padding: 0px">
-                    12,5
+                <div class = "circle_info">
+                    <% if sprint_list_size > 4 %>
+                        0
+                    <% else %>
+                        <a class = "circle-number">12.6</a>
+                        <a style = "font-size: 0.45em;">m/s</a>
+                        <a style = "font-size: 0.45em;">MFEL</a>
+                    <% end %>
                 </div>
             </div>
             <div class = "col" style = "padding: 0px">
-                <%= test.local %>
+                <div class = "test-local-title"><%= test.local %></div>
+                <div class = "test-local-subtitle"><%= test.date %> às <%= test.time.to_formatted_s(:time) %></div>
+                <% if sprint_list_size < 4 %>
+                    <div style = "padding: 0px; margin: 0px">
+                        <b class = "test-local-status">INCOMPLETO</b>
+                        
+                        <!-- Primeira Sprint -->
+                        <% if sprint_list_size <= 0 %>
+                            <i class="far fa-times-circle tlsi-f"></i>
+                        <% else %>
+                            <i class="far fa-check-circle tlsi-s"></i>
+                        <% end %>
+                        
+                        <!-- Segunda Sprint -->
+                        <% if sprint_list_size <= 1 %>
+                            <i class="far fa-times-circle tlsi-f"></i>
+                        <% else %>
+                            <i class="far fa-check-circle tlsi-s"></i>
+                        <% end %>
+                        
+                        
+                        <!-- Terceira Sprint -->
+                        <% if sprint_list_size <= 2 %>
+                            <i class="far fa-times-circle tlsi-f"></i>
+                        <% else %>
+                            <i class="far fa-check-circle tlsi-s"></i>
+                        <% end %>
+                        
+                        
+                        <!-- Quarta Sprint -->
+                        <% if sprint_list_size <= 3 %>
+                            <i class="far fa-times-circle tlsi-f"></i>
+                        <% else %>
+                            <i class="far fa-check-circle tlsi-s"></i>
+                        <% end %>
+                        
+                    </div>
+                <% end %>
+            </div>
+            
+            <div class = "col col-auto align-self-end">
+                <button class = "btn btn-link"><i class="fas fa-trash"></i></button>
             </div>
         </div>
     <% end %>
@@ -18,7 +67,6 @@
             <br>
             <small>Ainda nenhum teste,</br></small>
             <small>já para pista!</small>
-            
         </center>
     </div>
 <% end %>

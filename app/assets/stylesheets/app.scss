@@ -75,7 +75,7 @@
     background: var(--reallightdefaultblue);
     margin-bottom: 10px;
     width: 100%;
-    min-width: 300px;
+    min-width: 350px;
     padding: 7px 0px;
     display: flex;
 }
@@ -83,11 +83,45 @@
 .circle_info{
     background: var(--darkblue);
     border-radius: 50%;
-    border: 5px solid var(--darkpoolblue);
-    height: 50px;
-    width: 50px;
+    border: 3px solid var(--darkpoolblue);
+    height: 62px;
+    width: 62px;
     color: white;
-    font-size: 0.7em;
     text-align: center;
-    
+    padding-top: 20px;
+    line-height: 10px;
+}
+
+.test-local-title{
+    font-size: 0.95em;
+    font-weight: bold;
+    color: var(--realdarkpoolblue);
+}
+
+.test-local-subtitle{
+    font-size: 0.65em;
+}
+
+.test-local-status{
+    width:auto;
+    font-size: 0.55em;
+    font-weight: bold;
+    color: var(--realdarkpoolred);
+    margin-right: 17px;
+}
+
+.tlsi-f{
+    font-size: 0.55em;
+    color: var(--realdarkpoolred);
+}
+
+.tlsi-s{
+    font-size: 0.55em;
+    color: var(--realdarkpoolgreen);
+}
+
+
+.circle-number{
+    font-size: 1em;
+    font-weight: bold;
 }
