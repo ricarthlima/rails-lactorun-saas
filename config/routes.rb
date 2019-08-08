@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'protocol' => "app#index"
   
   post 'new_lactate_test' => "app#new_lactate_test"
+  post 'remove_lactate_test' => "app#remove_lactate_test"
 end

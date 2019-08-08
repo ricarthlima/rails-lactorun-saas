@@ -56,4 +56,11 @@ class AppController < ApplicationController
         end
         redirect_to app_path
     end
+    
+    def remove_lactate_test
+        id = params["lactate_test"]["lactate_test_id"]
+        testDel = LactateTest.find(id)
+        testDel.delete
+        redirect_to app_path
+    end
 end
