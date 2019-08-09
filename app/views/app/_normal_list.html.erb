@@ -2,7 +2,7 @@
     <% @list_lactate_test.each do |test| %>
         <% sprint_list = SprintTest.where("lactate_test_id = '" + test.id.to_s + "'")%>
         <% sprint_list_size = sprint_list.size %>
-        <div class = "list_item  align-items-center">
+        <div class = "list_item  align-items-center pointer" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
             <div class = "col-auto">
                 <div class = "circle_info">
                     <% if sprint_list_size < 4 %>
@@ -65,6 +65,8 @@
                 <% end %>
                     
             </div>
+            
+            <%= render 'modal_lactate_test', test: test, sprint_list: sprint_list %>
         </div>
     <% end %>
 <% else %>
@@ -77,3 +79,5 @@
         </center>
     </div>
 <% end %>
+
+

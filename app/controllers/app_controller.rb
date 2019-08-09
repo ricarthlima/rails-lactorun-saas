@@ -27,6 +27,8 @@ class AppController < ApplicationController
     def index_normal
         @list_lactate_test = LactateTest.where("user_id = '"+current_user.id+"'").order(created_at: :desc)
         @lactate_test = LactateTest.new
+        
+        @lactate_test_info = LactateTest.new
         render :index
     end
     

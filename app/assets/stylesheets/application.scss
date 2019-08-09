@@ -80,6 +80,10 @@ h1,h2,h3,h4,h5,h6{
     font-size: 0.75em;
 }
 
+.text-xlg{
+    font-size: 3em;
+}
+
 .font-comfortaa{
     font-family: 'Comfortaa', cursive;
 }
@@ -99,6 +103,14 @@ h1,h2,h3,h4,h5,h6{
 
 .font-oswald{
     font-family: 'Oswald', sans-serif;
+}
+
+.cursor-auto{
+    cursor: auto;
+}
+
+.pointer:hover{
+    cursor: pointer;
 }
 
 /* Classes */
