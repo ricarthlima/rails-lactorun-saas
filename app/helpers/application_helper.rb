@@ -43,6 +43,31 @@ module ApplicationHelper
         mfel = ((0.9673 * vcritx) + 0.2061);
         mfel = mfel / 3.6;
         
-        return mfel;
+        return "%.2f"%[mfel]
+    end
+    
+    def getMFELFromList(sprint_list)
+        return getMFEL(sprint_list[0].distance, sprint_list[0].time, 
+        sprint_list[1].distance, sprint_list[1].time,
+        sprint_list[2].distance, sprint_list[2].time, 
+        sprint_list[3].distance, sprint_list[3].time)
+    end
+    
+    def getVel(distancia, tempo)
+        rel = distancia/tempo
+        return "%.2f"%[rel]
+    end
+    
+    def order(i)
+        case (i)
+        when 1
+            return "Primeira"
+        when 2
+            return "Segunda"
+        when 3
+            return "Terceira"
+        when 4
+            return "Quarta"
+        end
     end
 end

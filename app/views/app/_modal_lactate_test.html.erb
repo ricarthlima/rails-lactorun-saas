@@ -1,74 +1,57 @@
 <% test = local_assigns[:test] %>
 <% sprint_list = local_assigns[:sprint_list] %>
 <div class="modal fade cursor-auto" id=<%="modal" + local_assigns[:test].id.to_s%> tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog  modal-lg" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado"><%= local_assigns[:test].local %></h5>
+          <div>
+            <h5 class="modal-title" id="TituloModalCentralizado"><%= local_assigns[:test].local %></h5>
+            <small><%= test.date %> às <%= test.time.to_s[11,5] %></small>
+          </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
           <div class = "container">
-              <div class = "row">
-                  <!-- Primeira Sprint -->
-                    <div class = "col align-self-center">
-                            <div class = "row ">
-                                <h5><center><strong>Primeira Sprint</strong></center></h5>
+              <div class = "col">
+                  
+                  <% [1,2,3,4].each do |i| %>
+                      <div class = "row align-items-center mb-sm">
+                          <% thisSprint = nil %>
+                          <% sprint_list.each do |sprint| %>
+                              <% if sprint.order == i %>
+                                  <% thisSprint = sprint %>
+                              <% end %>
+                          <% end %>
+                          
+                          <div class = "col-auto" style = "padding: 0px 15px 0px 0px;">
+                              <% if thisSprint == nil %>
+                                  <button class = "btn btn-success btn-circle"><i class="fas fa-plus"></i></button>
+                              <% else %>
+                                  <i class="far fa-check-circle tlsi-s text-xlg"></i>
+                              <% end %>
+                          </div>
+                          
+                          <div class = "col-4">
+                            <div class = "row">
+                                <strong><%= order(i) %> Sprint</strong>
                             </div>
-                            <div class = "row ">
-                                <% if sprint_list.size <= 0 %>
-                                    <button class = "btn btn-success">Adicionar 1ª Sprint</button>
-                                <% else %>
-                                    <i class="far fa-check-circle tlsi-s text-xlg"></i>
-                                <% end %>
-                            </div>
-                    </div>
-                    
-                    <!-- Segunda Sprint -->
-                    <div class = "col align-self-center">
-                        <div class = "row">
-                            <h5><center><strong>Segunda Sprint</strong></center></h5>
-                        </div>
-                        <div class = "row">
-                            <% if sprint_list.size <= 1 %>
-                                <button class = "btn btn-success">Adicionar 2ª Sprint</button>
-                            <% else %>
-                                <i class="far fa-check-circle tlsi-s text-xlg"></i>
+                            <% if thisSprint != nil %>
+                                <div class = "row">
+                                    <small>Velocidade: <%= getVel(thisSprint.distance, thisSprint.time) %> m/s</small>
+                                </div>
+                                <div class = "row">
+                                    <small>Distância: <%= thisSprint.distance %> m</small>
+                                </div>
+                                <div class = "row mb-sm">
+                                    <small>Tempo: <%= thisSprint.time %> s</small>
+                                </div>
                             <% end %>
                         </div>
-                    </div>
-                    
-                    
-                    <!-- Terceira Sprint -->
-                    <div class = "col align-self-center">
-                        <div class = "row">
-                            <h5><center><strong>Terceira Sprint</strong></center></h5>
-                        </div>
-                        <div class = "row">
-                            <% if sprint_list.size <= 2 %>
-                                <button class = "btn btn-success">Adicionar 3ª Sprint</button>
-                            <% else %>
-                                <i class="far fa-check-circle tlsi-s text-xlg"></i>
-                            <% end %>
-                        </div>
-                    </div>
-                    
-                    
-                    <!-- Quarta Sprint -->
-                    <div class = "col align-self-center">
-                        <div class = "row">
-                            <h5><center><strong>Quarta Sprint</strong></center></h5>
-                        </div>
-                        <div class = "row">
-                            <% if sprint_list.size <= 3 %>
-                                <button class = "btn btn-success">Adicionar 4ª Sprint</button>
-                            <% else %>
-                                <i class="far fa-check-circle tlsi-s text-xlg"></i>
-                            <% end %>
-                        </div>
-                    </div>
+                      </div>
+                      <hr>
+                  <% end %>
               </div>
           </div>
       </div>
