@@ -58,14 +58,18 @@
                             <% @sprint_test = SprintTest.new %>
                                 <%= form_for @sprint_test, url: new_sprint_test_path do |f| %>
                                       <%= f.hidden_field(:lactate_test_id, :value => test.id) %>
+                                      <%= hidden_field_tag(:order, i) %>
                                       <div class = "form-group">
                                           <small>Qual a distancia percorrida? (metros)</small>
-                                          <%= f.number_field :distance, class: "form-control form-control-sm", min: 1, step: 2, :value => defaultDistance(i) %>
+                                          <%= f.number_field :distance, class: "form-control form-control-sm", min: 1, :value => defaultDistance(i) %>
                                       </div>
-                                      <div class = "form-group">
-                                          <small>Em quanto tempo? (minutos)</small>
-                                          <%= f.time_field :time, class: "form-control form-control-sm"%>
+                                      <small>Em quanto tempo? (minutos e segundos)</small>
+                                      <div class = "form-inline mb-sm">
+                                          <%= number_field_tag :minutes, nil, in: 0...60, class: "form-control form-control-sm  mr-sm"%> :
+                                          <%= number_field_tag :seconds, nil, in: 0...60, class: "form-control form-control-sm  ml-sm"%>
                                       </div>
+                                      
+                                      <button type="submit" class="btn btn-primary btn-sm mt-sm">Salvar</button>
                                 <% end %>
                           </div>
                         </div>

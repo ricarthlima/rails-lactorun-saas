@@ -67,6 +67,12 @@ class AppController < ApplicationController
     end
     
     def new_sprint_test
-        
+        sprint = SprintTest.new
+        sprint.lactate_test_id = params["sprint_test"]["lactate_test_id"]
+        sprint.order = params["order"].to_i
+        sprint.distance = params["sprint_test"]["distance"]
+        sprint.time = (params["minutes"].to_s.to_i * 60) + params["seconds"].to_s.to_i
+        sprint.save
+        redirect_to app_path(sprint.lactate_test_id)
     end
 end
