@@ -8,7 +8,7 @@
                     <% if sprint_list_size < 4 %>
                         <i class="fas fa-ellipsis-h"></i>
                     <% else %>
-                        <a class = "circle-number"><%= getMFELFromList(sprint_list) %></a>
+                        <a class = "circle-number"><%=getMFELFromList(sprint_list)%></a>
                         <a style = "font-size: 0.45em;">m/s</a>
                         <a style = "font-size: 0.45em;">MFEL</a>
                     <% end %>
@@ -52,9 +52,8 @@
                 <% end %>
                     
             </div>
-            
-            <%= render 'modal_lactate_test', test: test, sprint_list: sprint_list %>
         </div>
+        <%= render 'modal_lactate_test', test: test, sprint_list: sprint_list %>
     <% end %>
 <% else %>
     <div class = "" style = "margin-top: 30px;">

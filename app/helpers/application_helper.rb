@@ -70,4 +70,17 @@ module ApplicationHelper
             return "Quarta"
         end
     end
+    
+    def defaultDistance(i)
+        case(i)
+        when 1
+            return 800
+        when 2
+            return 1500
+        when 3
+            return 3000
+        when 4
+            return 5000
+        end
+    end
 end

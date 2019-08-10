@@ -65,4 +65,8 @@ class AppController < ApplicationController
         testDel.delete
         redirect_to app_path
     end
+    
+    def new_sprint_test
+        
+    end
 end
