@@ -60,9 +60,19 @@ class AppController < ApplicationController
     end
     
     def remove_lactate_test
+        # Verificar se o LactateTest existe
         id = params["lactate_test"]["lactate_test_id"]
         testDel = LactateTest.find(id)
+        
+        # Deletar todas as Sprint filhas
+        SprintTest.where("lactate_test_id = '" + id + "'").each do |sprint|
+            sprint.delete
+        end
+        
+        # Deletar o teste
         testDel.delete
+        
+        # Redirecionar para o app
         redirect_to app_path
     end
     

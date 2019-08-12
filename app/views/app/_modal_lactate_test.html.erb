@@ -27,7 +27,7 @@
                           
                           <div class = "col-auto" style = "padding: 0px 15px 0px 0px;">
                               <% if thisSprint == nil %>
-                                <button class = "btn btn-success btn-circle" type="button" data-toggle="collapse" data-target=<%= "#collapse" + i.to_s%> aria-expanded="false" aria-controls="collapseExample">
+                                <button class = "btn btn-success btn-circle" type="button" data-toggle="collapse" data-target=<%= "#collapse"  + test.id.to_s + i.to_s%> aria-expanded="false" aria-controls="collapseExample">
                                       <i class="fas fa-plus"></i>
                                 </button>
                               <% else %>
@@ -53,7 +53,7 @@
                         </div>
                       </div>
                       <div class = "row">
-                        <div class="collapse" id=<%= "collapse" + i.to_s%>>
+                        <div class="collapse" id=<%= "collapse" + test.id.to_s + i.to_s%>>
                           <div>
                             <% @sprint_test = SprintTest.new %>
                                 <%= form_for @sprint_test, url: new_sprint_test_path do |f| %>
@@ -65,8 +65,8 @@
                                       </div>
                                       <small>Em quanto tempo? (minutos e segundos)</small>
                                       <div class = "form-inline mb-sm">
-                                          <%= number_field_tag :minutes, nil, in: 0...60, class: "form-control form-control-sm  mr-sm"%> :
-                                          <%= number_field_tag :seconds, nil, in: 0...60, class: "form-control form-control-sm  ml-sm"%>
+                                          <%= number_field_tag :minutes, nil, in: 0...60, class: "form-control form-control-sm width-sm mr-sm"%> :
+                                          <%= number_field_tag :seconds, nil, in: 0...60, class: "form-control form-control-sm width-sm ml-sm"%>
                                       </div>
                                       
                                       <button type="submit" class="btn btn-primary btn-sm mt-sm">Salvar</button>
