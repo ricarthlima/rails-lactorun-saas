@@ -29,6 +29,10 @@ class AppController < ApplicationController
         @lactate_test = LactateTest.new
         
         @lactate_test_info = LactateTest.new
+        @open_lactate_test = params[:lactate_test]
+        print("\n--------------------------\n")
+        print(@open_lactate_test)
+        print("\n--------------------------\n")
         render :index
     end
     
@@ -83,6 +87,6 @@ class AppController < ApplicationController
         sprint.distance = params["sprint_test"]["distance"]
         sprint.time = (params["minutes"].to_s.to_i * 60) + params["seconds"].to_s.to_i
         sprint.save
-        redirect_to app_path(sprint.lactate_test_id)
+        redirect_to app_path(lactate_test: sprint.lactate_test_id)
     end
 end
