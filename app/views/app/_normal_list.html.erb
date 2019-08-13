@@ -2,8 +2,10 @@
     <% @list_lactate_test.each do |test| %>
         <% sprint_list = SprintTest.where("lactate_test_id = '" + test.id.to_s + "'").order(order: :asc)%>
         <% sprint_list_size = sprint_list.size %>
-        <div class = "list_item  align-items-center pointer" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
-            <div class = "col-auto">
+        <div class = "list_item align-items-center pointer">
+            
+            <!-- Círculo (click para modal) -->
+            <div class = "col-auto" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
                 <div class = "circle_info">
                     <% if sprint_list_size < 4 %>
                         <i class="fas fa-ellipsis-h"></i>
@@ -14,7 +16,9 @@
                     <% end %>
                 </div>
             </div>
-            <div class = "col" style = "padding: 0px">
+            
+            <!-- Informações (click para modal) -->
+            <div class = "col" style = "padding: 0px" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
                 <div class = "test-local-title"><%= test.local %></div>
                 <div class = "test-local-subtitle lh-sm"><%= test.date %> às <%= test.time.to_s[11,5] %> </div>
                 <% if sprint_list_size < 4 %>
@@ -41,18 +45,23 @@
                 <% end %>
             </div>
             
+            <!-- Botões Gerenciais -->
             <div class = "col col-auto align-self-end">
-                <% @test = test %>
-                <%= form_for @test, url: remove_lactate_test_path, method: :post do |f| %>
-                    <%= f.hidden_field(:lactate_test_id, :value => test.id) %>
-                    <%= f.button "", type: 'submit', class: "btn btn-link" do %>
-                        <i class="fas fa-trash"></i>
-                    <% end %>
-                <% end %>
-                    
+                <!-- Aciona modal de confirmação de deleção -->
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target=<%= "#modalConfirmRemove" + test.id.to_s%>>
+                    <i class="fas fa-trash"></i>
+                </button>
             </div>
         </div>
+        
+        
+        
+        <!-- Modal Informações/Adicionar -->
         <%= render 'modal_lactate_test', test: test, sprint_list: sprint_list %>
+        
+        <!-- Modal Confirmação de Remoção-->
+        <%= render 'modal_confirm_remove_lactate_test', test: test %>
+                
     <% end %>
     <% if @open_lactate_test != '' %>
         <!-- Botão para acionar modal -->
