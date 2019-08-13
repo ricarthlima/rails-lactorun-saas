@@ -1,0 +1,19 @@
+<div class="modal fade" id=<%= "modalConfirmRemove" + test.id.to_s%> tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Você tem certeza?</h5>
+      </div>
+      <div class="modal-footer">
+        <% @test = test %>
+            <%= form_for @test, url: remove_lactate_test_path, method: :post do |f| %>
+                <%= f.hidden_field(:lactate_test_id, :value => test.id) %>
+                <%= f.button "", type: 'submit', class: "btn btn-danger"  do %>
+                    Excluir
+                <% end %>
+            <% end %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

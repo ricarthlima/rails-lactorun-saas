@@ -64,7 +64,7 @@
 
 .dashboard_main_col{
     background-color: var(--lightdefaultblue); 
-    padding-top: 20px;
+    padding: 0px !important;
     border-left: 1px solid var(--nheblue);
     border-right: 1px solid var(--nheblue);
     overflow-x: auto;
@@ -73,21 +73,63 @@
 
 .list_item{
     background: var(--reallightdefaultblue);
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: 100%;
-    min-width: 300px;
+    min-width: 350px;
     padding: 7px 0px;
     display: flex;
+    
+    border: 1px solid var(--defaultblue);
 }
 
 .circle_info{
     background: var(--darkblue);
     border-radius: 50%;
-    border: 5px solid var(--darkpoolblue);
-    height: 50px;
-    width: 50px;
+    border: 3px solid var(--darkpoolblue);
+    height: 62px;
+    width: 62px;
     color: white;
-    font-size: 0.7em;
     text-align: center;
-    
+    padding-top: 20px;
+    line-height: 10px;
+}
+
+.test-local-title{
+    font-size: 0.95em;
+    font-weight: bold;
+    color: var(--realdarkpoolblue);
+}
+
+.test-local-subtitle{
+    font-size: 0.65em;
+}
+
+.test-local-status{
+    width:auto;
+    font-size: 0.55em;
+    font-weight: bold;
+    color: var(--realdarkpoolred);
+    margin-right: 17px;
+}
+
+.tlsi-f{
+    font-size: 0.55em;
+    color: var(--realdarkpoolred);
+}
+
+.tlsi-s{
+    font-size: 0.55em;
+    color: var(--realdarkpoolgreen);
+}
+
+.circle-number{
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.btn-circle{
+    border-radius: 50% !important;
+    height: 32px;
+    width: 32px;
+    padding: 2px 0px 0px 2px !important;
 }

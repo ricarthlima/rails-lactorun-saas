@@ -1,0 +1,47 @@
+<div class="modal fade" id="formNewLactateTest" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Adicionar Novo Teste</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @lactate_test, url: new_lactate_test_path do |f| %>
+          <div class="modal-body">
+              <%= f.hidden_field(:user_id, :value => current_user.id) %>
+              <div class = "form-group">
+                  Onde foi feito o teste?
+                  <%= f.text_field :local, class: "form-control form-control-sm" %>
+              </div>
+              <div class = "form-group">
+                  Quando foi feito o teste?
+                  <%= f.date_field :date, class: "form-control form-control-sm", :value => Date.today%>
+              </div>
+              
+              <div class = "form-group">
+                  Em qual horário foi feito o teste?
+                  <%= f.time_field :time, class: "form-control form-control-sm", :value => Time.current%>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <div class = "form-inline" style = "text-align: left;">
+                <input class = "mr-sm" type="checkbox" value="" id="protocolVerificationCheck" onclick = "toogleSaveNewLactateTestButton">
+                <small>Declaro que li e concordo com o  <a href = <%= protocol_path %>>Protocolo</a>.</small>
+            </div>
+            <button type="submit" class="btn btn-primary" id = "saveNewLactateTestButton">Salvar</button>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  var check = document.getElementById("protocolVerificationCheck");
+  var saveButton = document.getElementById('saveNewLactateTestButton');
+  saveButton.disabled = true;
+  
+  check.addEventListener('click', function(event) {
+      saveButton.disabled = !saveButton.disabled;
+  });
+</script>

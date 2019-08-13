@@ -1,15 +1,76 @@
 <% if @list_lactate_test.size > 0  then %>
     <% @list_lactate_test.each do |test| %>
-        <div class = "list_item">
-            <div class = "col-auto">
-                <div class = "circle_info"  style = "padding: 0px">
-                    12,5
+        <% sprint_list = SprintTest.where("lactate_test_id = '" + test.id.to_s + "'").order(order: :asc)%>
+        <% sprint_list_size = sprint_list.size %>
+        <div class = "list_item align-items-center pointer">
+            
+            <!-- Círculo (click para modal) -->
+            <div class = "col-auto" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
+                <div class = "circle_info">
+                    <% if sprint_list_size < 4 %>
+                        <i class="fas fa-ellipsis-h"></i>
+                    <% else %>
+                        <a class = "circle-number"><%=getMFELFromList(sprint_list)%></a>
+                        <a style = "font-size: 0.45em;">m/s</a>
+                        <a style = "font-size: 0.45em;">MFEL</a>
+                    <% end %>
                 </div>
             </div>
-            <div class = "col" style = "padding: 0px">
-                <%= test.local %>
+            
+            <!-- Informações (click para modal) -->
+            <div class = "col" style = "padding: 0px" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
+                <div class = "test-local-title"><%= test.local %></div>
+                <div class = "test-local-subtitle lh-sm"><%= test.date %> às <%= test.time.to_s[11,5] %> </div>
+                <% if sprint_list_size < 4 %>
+                    <div style = "padding: 0px; margin: 0px">
+                        <b class = "test-local-status">INCOMPLETO</b>
+                        
+                        <!-- Bolinhas -->
+                        <% [1,2,3,4].each do |i| %>
+                            <% thisSprint = nil %>
+                            <% sprint_list.each do |sprint| %>
+                                <% if sprint.order == i %>
+                                    <% thisSprint = sprint %>
+                                <% end %>
+                            <% end %>
+                            
+                            <% if thisSprint == nil %>
+                                <i class="far fa-times-circle tlsi-f"></i>
+                            <% else %>
+                                <i class="far fa-check-circle tlsi-s"></i>
+                            <% end %>
+                        <% end %>
+                        
+                    </div>
+                <% end %>
+            </div>
+            
+            <!-- Botões Gerenciais -->
+            <div class = "col col-auto align-self-end">
+                <!-- Aciona modal de confirmação de deleção -->
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target=<%= "#modalConfirmRemove" + test.id.to_s%>>
+                    <i class="fas fa-trash"></i>
+                </button>
             </div>
         </div>
+        
+        
+        
+        <!-- Modal Informações/Adicionar -->
+        <%= render 'modal_lactate_test', test: test, sprint_list: sprint_list %>
+        
+        <!-- Modal Confirmação de Remoção-->
+        <%= render 'modal_confirm_remove_lactate_test', test: test %>
+                
+    <% end %>
+    <% if @open_lactate_test != '' %>
+        <!-- Botão para acionar modal -->
+        <button type="button" class = "btnOpenModal hidden" data-toggle="modal" data-target=<%="#modal" + @open_lactate_test.to_s%>>
+        </button>
+        <script>
+            document.getElementsByClassName("btnOpenModal")[0].click();
+        </script>
+        
     <% end %>
 <% else %>
     <div class = "" style = "margin-top: 30px;">
@@ -18,7 +79,8 @@
             <br>
             <small>Ainda nenhum teste,</br></small>
             <small>já para pista!</small>
-            
         </center>
     </div>
 <% end %>
+
+

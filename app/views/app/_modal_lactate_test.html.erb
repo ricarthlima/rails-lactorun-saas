@@ -1,0 +1,87 @@
+<% test = local_assigns[:test] %>
+<% sprint_list = local_assigns[:sprint_list] %>
+<div class="modal fade cursor-auto" id=<%="modal" + local_assigns[:test].id.to_s%> tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <div>
+            <h5 class="modal-title" id="TituloModalCentralizado"><%= local_assigns[:test].local %></h5>
+            <small><%= test.date %> às <%= test.time.to_s[11,5] %></small>
+          </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class = "container">
+              <div class = "col">
+                  
+                  <% [1,2,3,4].each do |i| %>
+                      <div class = "row align-items-center mb-sm">
+                          <% thisSprint = nil %>
+                          <% sprint_list.each do |sprint| %>
+                              <% if sprint.order == i %>
+                                  <% thisSprint = sprint %>
+                              <% end %>
+                          <% end %>
+                          
+                          <div class = "col-auto" style = "padding: 0px 15px 0px 0px;">
+                              <% if thisSprint == nil %>
+                                <button class = "btn btn-success btn-circle" type="button" data-toggle="collapse" data-target=<%= "#collapse"  + test.id.to_s + i.to_s%> aria-expanded="false" aria-controls="collapseExample">
+                                      <i class="fas fa-plus"></i>
+                                </button>
+                              <% else %>
+                                  <i class="far fa-check-circle tlsi-s text-xlg"></i>
+                              <% end %>
+                          </div>
+                          
+                          <div class = "col-4">
+                            <div class = "row">
+                                <strong><%= order(i) %> Sprint</strong>
+                            </div>
+                            <% if thisSprint != nil %>
+                                <div class = "row">
+                                    <small>Velocidade: <%= getVel(thisSprint.distance, thisSprint.time) %> m/s</small>
+                                </div>
+                                <div class = "row">
+                                    <small>Distância: <%= thisSprint.distance %> m</small>
+                                </div>
+                                <div class = "row mb-sm">
+                                    <small>Tempo: <%= thisSprint.time %> s</small>
+                                </div>
+                            <% end %>
+                        </div>
+                      </div>
+                      <div class = "row">
+                        <div class="collapse" id=<%= "collapse" + test.id.to_s + i.to_s%>>
+                          <div>
+                            <% @sprint_test = SprintTest.new %>
+                                <%= form_for @sprint_test, url: new_sprint_test_path do |f| %>
+                                      <%= f.hidden_field(:lactate_test_id, :value => test.id) %>
+                                      <%= hidden_field_tag(:order, i) %>
+                                      <div class = "form-group">
+                                          <small>Qual a distancia percorrida? (metros)</small>
+                                          <%= f.number_field :distance, class: "form-control form-control-sm", min: 1, :value => defaultDistance(i) %>
+                                      </div>
+                                      <small>Em quanto tempo? (minutos e segundos)</small>
+                                      <div class = "form-inline mb-sm">
+                                          <%= number_field_tag :minutes, nil, in: 0...60, class: "form-control form-control-sm width-sm mr-sm"%> :
+                                          <%= number_field_tag :seconds, nil, in: 0...60, class: "form-control form-control-sm width-sm ml-sm"%>
+                                      </div>
+                                      
+                                      <button type="submit" class="btn btn-primary btn-sm mt-sm">Salvar</button>
+                                <% end %>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

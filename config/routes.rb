@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   
   get 'app' => 'app#manager_verification'
   get 'app_set' => 'app#set_manager'
+  
+  get 'protocol' => "app#index"
+  
+  post 'new_lactate_test' => "app#new_lactate_test"
+  post 'remove_lactate_test' => "app#remove_lactate_test"
+  post 'new_sprint_test' => "app#new_sprint_test"
 end

@@ -25,7 +25,68 @@ class AppController < ApplicationController
     end
     
     def index_normal
-        @list_lactate_test = LactateTest.where("user_id = '"+current_user.id+"'")
+        @list_lactate_test = LactateTest.where("user_id = '"+current_user.id+"'").order(created_at: :desc)
+        @lactate_test = LactateTest.new
+        
+        @lactate_test_info = LactateTest.new
+        @open_lactate_test = params[:lactate_test]
+        print("\n--------------------------\n")
+        print(@open_lactate_test)
+        print("\n--------------------------\n")
         render :index
+    end
+    
+    def new_lactate_test
+        @lactate_test = LactateTest.new
+        @lactate_test.user_id = params["lactate_test"]["user_id"]
+        @lactate_test.local = params["lactate_test"]["local"]
+        @lactate_test.date = params["lactate_test"]["date"]
+        @lactate_test.time = params["lactate_test"]["time"]
+        
+        if !@lactate_test.valid? then
+            flash[:error] = "Não foi possível salvar as informações."
+            
+            if @lactate_test.local == "" then
+                flash[:list] = "É preciso inserir um local.\n"
+            end
+            
+            if @lactate_test.date == nil then
+                flash[:list] += "É preciso inserir uma data.\n"
+            end
+            
+            if @lactate_test.time == nil then
+                flash[:list] += "É preciso inserir um horário."
+            end
+        else
+            @lactate_test.save
+        end
+        redirect_to app_path
+    end
+    
+    def remove_lactate_test
+        # Verificar se o LactateTest existe
+        id = params["lactate_test"]["lactate_test_id"]
+        testDel = LactateTest.find(id)
+        
+        # Deletar todas as Sprint filhas
+        SprintTest.where("lactate_test_id = '" + id + "'").each do |sprint|
+            sprint.delete
+        end
+        
+        # Deletar o teste
+        testDel.delete
+        
+        # Redirecionar para o app
+        redirect_to app_path
+    end
+    
+    def new_sprint_test
+        sprint = SprintTest.new
+        sprint.lactate_test_id = params["sprint_test"]["lactate_test_id"]
+        sprint.order = params["order"].to_i
+        sprint.distance = params["sprint_test"]["distance"]
+        sprint.time = (params["minutes"].to_s.to_i * 60) + params["seconds"].to_s.to_i
+        sprint.save
+        redirect_to app_path(lactate_test: sprint.lactate_test_id)
     end
 end

@@ -23,11 +23,16 @@
     --highlightblue: #36577a;
     --lightblue: #CDE7F9;
     --default2blue: #7ad5e9;
+    
     --lightdefaultblue: #a5cbe5;
     --reallightdefaultblue: #c1e1f6;
     --nheblue: #86b4d3;
     
     --darkpoolblue: #0183a7;
+    --realdarkpoolblue: #007599;
+    
+    --realdarkpoolred: #990000;
+    --realdarkpoolgreen: #079900;
 }
 
 /* Padrões */
@@ -59,6 +64,10 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: 5px;
 }
 
+.lh-sm{
+    line-height: 10px;
+}
+
 .text-bold{
     font-weight: bold;
 }
@@ -69,6 +78,10 @@ h1,h2,h3,h4,h5,h6{
 
 .text-sm{
     font-size: 0.75em;
+}
+
+.text-xlg{
+    font-size: 2em;
 }
 
 .font-comfortaa{
@@ -90,6 +103,14 @@ h1,h2,h3,h4,h5,h6{
 
 .font-oswald{
     font-family: 'Oswald', sans-serif;
+}
+
+.cursor-auto{
+    cursor: auto;
+}
+
+.pointer:hover{
+    cursor: pointer;
 }
 
 /* Classes */
@@ -228,8 +249,19 @@ h1,h2,h3,h4,h5,h6{
     /*max-width: 350px;*/
 }
 
+@media(max-width: 575px){
+    .botao-flutuante{
+        position: fixed;
+    }
+}
+
+@media(min-width: 576px){
+    .botao-flutuante{
+        position: absolute;
+    }
+}
+
 .botao-flutuante{
-    position: absolute;
     bottom: 32px;
     right: 32px;
     
@@ -247,7 +279,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .botao-flutuante:hover{
-    color: #dddddd;
+    background: var(--greyblue);
+    color: white;
 }
 
 .navbar-circle{
@@ -269,4 +302,8 @@ h1,h2,h3,h4,h5,h6{
     min-height: calc(100vh - 72px); 
     max-height: calc(100vh - 72px);  
     position: relative;
+}
+
+.width-sm{
+    max-width: 60px !important;
 }
