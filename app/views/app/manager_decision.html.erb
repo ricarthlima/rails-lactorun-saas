@@ -11,7 +11,7 @@
         <div class = "row">
             <div class = "col">
                 <div class = "btn-manager-decision">
-                    <a class = "btn" href = <%= app_set_path.to_s + "?is_manager=true" %>>
+                    <a class = "btn" href = "#"  data-toggle="modal" data-target="#accessCodeManager">
                         <img src = "/assets/whistle.png" class = "manager-decision-button-image"><br>
                         <h4 class = "font-raleway"><strong>Treinador ou Professor</strong></h4>
                         <small>Ideal para quem vai gerenciar equipes mas não praticar os testes. Aqui você acessa os dados da sua equipe e <strong>pode ver gráficos e instruções</strong>.</small>
@@ -34,3 +34,26 @@
 </div>
 
 <%= render 'shared/plans' %>
+
+<!-- Modal -->
+<div class="modal fade" id="accessCodeManager" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>Insira o código de acesso:</strong>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% @a = "a" %>
+      <%= form_for @a, url: set_manager_path do |f| %>
+          <div class="modal-body">
+            <%= text_field_tag :code, nil, class: "form-control form-control-sm" %>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-sm mt-sm">Confirmar</button>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

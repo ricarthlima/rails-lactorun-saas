@@ -15,14 +15,23 @@ class AppController < ApplicationController
     
     def set_manager
         is_manager = params[:is_manager]
-        if is_manager == "true" then
-            current_user.is_manager = true
-        elsif is_manager == "false" then
+        if is_manager == "false" then
             current_user.is_manager = false
         end
         current_user.save
         redirect_to app_path
     end
+    
+    def set_manager_true
+        code = params[:code]
+        if code == "3GQKEP9L" then
+            current_user.is_manager = true
+        else
+            flash[:error] = "Código incorreto!"
+        end
+        redirect_to app_path
+    end
+    
     
     def index_normal
         @list_lactate_test = LactateTest.where("user_id = '"+current_user.id+"'").order(created_at: :desc)

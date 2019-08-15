@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   get 'app' => 'app#manager_verification'
   get 'app_set' => 'app#set_manager'
+  post 'set_manager' => 'app#set_manager_true'
   
   get 'protocol' => "app#index"
   
