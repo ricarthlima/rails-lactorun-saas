@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  obs: MyText
+  access_code: MyString
+
+two:
+  user: two
+  name: MyString
+  obs: MyText
+  access_code: MyString
