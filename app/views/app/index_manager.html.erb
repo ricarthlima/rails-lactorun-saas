@@ -1,0 +1,9 @@
+<div class = "row dashboard-container">
+    <div class = "col dashboard_main_col">
+       <%= render "app/manager/team_list"%>
+    </div>
+</div>
+
+<% if user_signed_in? and current_user.is_manager %>
+    <%= render 'app/manager/form_new_team' %>
+<% end %>

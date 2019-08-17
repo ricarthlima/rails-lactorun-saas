@@ -1,0 +1,24 @@
+<% if @list_my_teams.size == 0 and @list_co_teams.size == 0 %>
+    <div class = "" style = "margin-top: 50px;">
+        <center>
+            <img src = "/assets/collaboration.png" height = "50" width = "auto" class = "mb-sm">
+            <br>
+            <small>Ainda nenhuma turma!</br></small>
+            <button class = "btn btn-link btn-sm" style = "padding: 0px"  type = "button" data-toggle="modal" data-target="#modalFormNewTeam">Clique aqui para criar</button>
+        </center>
+    </div>
+<% else %>
+    <!-- Minhas Turmas -->
+    <div class = "subtopic">Minhas turmas</div>
+    <% if @list_my_teams.size > 0 %>
+        <% @list_my_teams.each do |team| %>
+            <%= render 'app/manager/team_list_item', team: team %>
+        <% end %>
+    <% end %>
+    
+    <!-- Turmas Cooperativas -->
+    <div class = "subtopic">Compartilhadas comigo</div>
+    <% if @list_co_teams.size > 0 %>
+        <%= render 'app/manager/team_list_item', team: team  %>
+    <% end %>
+<% end %>

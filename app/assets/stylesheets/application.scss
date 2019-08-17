@@ -313,3 +313,11 @@ h1,h2,h3,h4,h5,h6{
     font-size: 0.8em;
     color: grey;
 }
+
+.btn-navbar{
+    border: solid 1px var(--greyblue);
+}
+
+.btn-navbar:hover{
+    background: var(--greyblue);
+}

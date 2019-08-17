@@ -3,4 +3,7 @@ class Team < ApplicationRecord
   
   has_many :team_runner
   has_many :team_comanager
+  
+  validates :user_id, presence: true
+  validates :name, presence: true
 end

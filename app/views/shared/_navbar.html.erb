@@ -27,29 +27,37 @@
                 <button class="btn btn-outline-info btn-block btn-nav my-0" type="button" data-toggle="modal" data-target="#modalRegistro">Inscrever-se!</button>
             </div>
         <% else %>
-            <div class = "dropdown">
-                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "padding: 0px">
-                    <img src = "/assets/user-simple.png" class = "navbar-circle mr-sm">
-                    <i class="fas fa-sort-down" style = "color: white"></i>
-                </button>
+            <div class = "form-inline">
+                <% if current_user.is_manager %>
+                    <button class="btn btn-navbar" style = "margin-right: 25px;" type = "button" data-toggle="modal" data-target="#modalFormNewTeam">
+                        <i class="fas fa-plus" style = "color: white"></i>
+                    </button>
+                <% end %>
                 
-                <div class = "dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style = "margin-top: 15px">
-                    <div style = "padding-left: 24px; padding-right: 24px;">
-                        <table>
-                            <tr>
-                                <td><img src = "/assets/user-simple.png" height = "75" class = "mr-sm"> </td>
-                                <td>
-                                    <%= current_user.name %><br>
-                                    <small><%= current_user.email%></small>    
-                                </td>
-                            </tr>
-                        </table>
-                        <%= button_to "Editar Perfil", edit_user_registration_path, method: :get, :class => "btn btn-block btn-sm mt-sm btn-outline-info" %>
+                <div class = "dropdown">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "padding: 0px">
+                        <img src = "/assets/user-simple.png" class = "navbar-circle mr-sm">
+                        <i class="fas fa-sort-down" style = "color: white"></i>
+                    </button>
+                    
+                    <div class = "dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style = "margin-top: 15px">
+                        <div style = "padding-left: 24px; padding-right: 24px;">
+                            <table>
+                                <tr>
+                                    <td><img src = "/assets/user-simple.png" height = "75" class = "mr-sm"> </td>
+                                    <td>
+                                        <%= current_user.name %><br>
+                                        <small><%= current_user.email%></small>    
+                                    </td>
+                                </tr>
+                            </table>
+                            <%= button_to "Editar Perfil", edit_user_registration_path, method: :get, :class => "btn btn-block btn-sm mt-sm btn-outline-info" %>
+                        </div>
+                        <hr>
+                        <%= button_to "Sair", destroy_user_session_path, method: :delete, :class => 'dropdown-item'%>
                     </div>
-                    <hr>
-                    <%= button_to "Sair", destroy_user_session_path, method: :delete, :class => 'dropdown-item'%>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </nav>
