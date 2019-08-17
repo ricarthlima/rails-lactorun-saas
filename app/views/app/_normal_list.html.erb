@@ -5,7 +5,7 @@
         <div class = "list_item align-items-center pointer">
             
             <!-- Círculo (click para modal) -->
-            <div class = "col-auto" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
+            <a class = "col-auto" href="#" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
                 <div class = "circle_info">
                     <% if sprint_list_size < 4 %>
                         <i class="fas fa-ellipsis-h"></i>
@@ -15,10 +15,10 @@
                         <a style = "font-size: 0.45em;">MFEL</a>
                     <% end %>
                 </div>
-            </div>
+            </a>
             
             <!-- Informações (click para modal) -->
-            <div class = "col" style = "padding: 0px" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
+            <a class = "col" style = "text-decoration:none; padding: 0px; color: var(--darkblue);" href="#" data-toggle="modal" data-target=<%="#modal" + test.id.to_s %>>
                 <div class = "test-local-title"><%= test.local %></div>
                 <div class = "test-local-subtitle lh-sm"><%= test.date %> às <%= test.time.to_s[11,5] %> </div>
                 <% if sprint_list_size < 4 %>
@@ -43,7 +43,7 @@
                         
                     </div>
                 <% end %>
-            </div>
+            </a>
             
             <!-- Botões Gerenciais -->
             <div class = "col col-auto align-self-end">
